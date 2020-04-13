@@ -53,32 +53,95 @@ titleText.innerHTML = "DOM <br> Is <br> Awesome"
 let buttonText = document.querySelector("button");
 buttonText.textContent = "Get Started";
 
-let nav = document.querySelectorAll("a");
-nav[0].textContent = "Services";
-nav[1].textContent = "Product";
-nav[2].textContent = "Vision";
-nav[3].textContent = "Features";
-nav[4].textContent = "About";
-nav[5].textContent = "Contact";
+//let nav = document.querySelectorAll("a")
+//nav[0].textContent = "Services";
+//nav[1].textContent = "Product";
+//nav[2].textContent = "Vision";
+//nav[3].textContent = "Features";
+//nav[4].textContent = "About";
+//nav[5].textContent = "Contact";
+
+let blog = document.createElement("a");
+blog.textContent = "Blog";
+blog.setAttribute("href", "#");
+blog.style.color = "green";
+
+let home = document.createElement("a");
+home.textContent = "Home";
+home.setAttribute("href", "#");
+home.style.color = "green";
+
+let nav = document.querySelectorAll("nav a");
+nav.forEach((elements, index) => {
+  elements.textContent = siteContent["nav"][`nav-item-${index+1}`]
+})
+nav.forEach((element) => {
+  element.style.color = "green"
+})
+
+let appendNav = document.querySelector("nav");
+appendNav.appendChild(blog);
+appendNav.appendChild(home);
 
 
-let titles = document.querySelectorAll('h4');
-titles[0].textContent = "Features";
-titles[1].textContent = "About";
-titles[2].textContent = "Services";
-titles[3].textContent = "Product";
-titles[4].textContent = "Vision";
-titles[5].textContent = "Contact";
 
-let para = document.querySelectorAll("p");
-para[0].textContent = "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio,in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
-para[1].textContent = "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metuscelerisque quis.";
-para[2].textContent = "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio,in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
-para[3].textContent = "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, ininterdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
-para[4].textContent = "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, ininterdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
-para[5].innerHTML = "123 Way 456 Street <br> Somewhere, USA";
-para[6].textContent = "1 (888) 888-8888";
-para[7].textContent = "sales@greatidea.io";
-para[8].textContent = "Copyright Great Idea! 2018";
+//let titles = document.querySelectorAll('h4');
+//titles[0].textContent = "Features";
+//titles[1].textContent = "About";
+//titles[2].textContent = "Services";
+//titles[3].textContent = "Product";
+//titles[4].textContent = "Vision";
+//titles[5].textContent = "Contact";
+
+let featuresH4 = document.querySelectorAll("h4")[0];
+featuresH4.textContent = siteContent["main-content"]["features-h4"];
+
+let featuresContent = document.querySelectorAll("p")[0];
+featuresContent.textContent = siteContent["main-content"]["features-content"];
+
+let aboutH4 = document.querySelectorAll("h4")[1];
+aboutH4.textContent = siteContent["main-content"]["about-h4"];
+
+let aboutContent = document.querySelectorAll("p")[1];
+aboutContent.textContent = siteContent["main-content"]["about-content"];
+
+let servicesH4 = document.querySelectorAll("h4")[2];
+servicesH4.textContent = siteContent["main-content"]["services-h4"];
+
+let servicesContent = document.querySelectorAll("p")[2];
+servicesContent.textContent = siteContent["main-content"]["services-content"];
+
+let productH4 = document.querySelectorAll("h4")[3];
+productH4.textContent = siteContent["main-content"]["product-h4"];
+
+let productContent = document.querySelectorAll("p")[3];
+productContent.textContent = siteContent["main-content"]["product-content"];
+
+let visionH4 = document.querySelectorAll("h4")[4];
+visionH4.textContent = siteContent["main-content"]["vision-h4"];
+
+let visionContent = document.querySelectorAll("p")[4];
+visionContent.textContent = siteContent["main-content"]["vision-content"];
+
+//para[0].textContent = "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio,in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
+//para[1].textContent = "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metuscelerisque quis.";
+//para[2].textContent = "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio,in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
+//para[3].textContent = "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, ininterdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
+//para[4].textContent = "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, ininterdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
+
+let contactH4 = document.querySelectorAll("h4")[5];
+contactH4.textContent = siteContent["contact"]["contact-h4"];
+
+let address = document.querySelectorAll("p")[5];
+address.textContent = siteContent["contact"]["address"];
+
+let phone = document.querySelectorAll("p")[6];
+phone.textContent = siteContent["contact"]["phone"];
+
+let email = document.querySelectorAll("p")[7];
+email.textContent = siteContent["contact"]["email"];
+
+let footer = document.querySelector("footer");
+footer.textContent = siteContent["footer"]["copyright"];
 
 
